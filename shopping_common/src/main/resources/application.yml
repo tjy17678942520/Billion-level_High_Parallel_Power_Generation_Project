@@ -1,0 +1,48 @@
+# 端口号
+server:
+  port: 9001
+
+
+# 日志格式
+logging:
+  pattern:
+    console: '%d{HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n'
+
+
+# 配置Mybatis-plus
+mybatis-plus:
+  global-config:
+    db-config:
+      # 表名前缀
+      table-prefix: bz_
+      # 主键生成策略为自增
+      id-type: auto
+  configuration:
+    # 关闭列名自动驼峰命名映射规则
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 开启sql日志
+
+
+spring:
+  # 数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///baizhanshopping?serverTimezone=UTC
+    username: root
+    password: root
+
+
+dubbo:
+  application:
+    name: shopping_goods_service # 项目名
+  registry:
+    address: zookeeper://47.97.16.78 # 注册中心地址
+    port: 2181 # 注册中心端口号
+    timeout: 10000 # 注册到zk上超市时间,ms
+  protocol:
+    name: dubbo # dubbo使用的协议
+    port: -1 # 自动分配端口
+  scan:
+    base-packages: com.itbaizhan.shopping_goods_service.service # 包扫描
+
+
