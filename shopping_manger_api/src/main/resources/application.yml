@@ -1,0 +1,21 @@
+# 端口号
+server:
+  port: 8001
+
+
+# 日志格式
+logging:
+  pattern:
+    console: '%d{HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n'
+
+
+dubbo:
+  application:
+    name: shopping_manager_api # 项目名
+  registry:
+    address: zookeeper://47.97.16.78 # 注册中心地址
+    port: 2181    # 注册中心的端口
+    timeout: 10000 # 注册到zk上超时时间，ms
+  protocol:
+    name: dubbo # dubbo使用的协议
+    port: -1 # dubbo自动分配端口

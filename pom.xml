@@ -23,6 +23,9 @@
             <module>shopping_common</module>
             <!-- 商品服务 -->
             <module>shopping_goods_service</module>
+
+            <!--管理员管理网站的api-->
+            <module>shopping_manger_api</module>
     </modules>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
